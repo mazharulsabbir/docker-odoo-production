@@ -8,7 +8,8 @@ services:
     volumes:
       - odoo-web-data:/var/lib/odoo
       - ./config:/etc/odoo
-      - ./local-addons:/mnt/extra-addons
+      - ./addons/auth:/mnt/extra-addons-api
+      - ./addons/custom:/mnt/extra-addons-custom
     environment:
       - USER=odoo
       - PASSWORD=odoo
@@ -36,7 +37,7 @@ services:
     volumes:
        - pgadmin:/var/lib/pgadmin
     ports:
-      - 5433:80
+      - 5334:80
     networks:
       - odoo
     restart: unless-stopped
