@@ -1,6 +1,6 @@
 FROM nginx:latest
 
-COPY /config/odoo-nginx.conf /etc/nginx/conf.d/
+COPY /nginx/config/odoo-nginx.conf /etc/nginx/conf.d/
 
 RUN rm /etc/nginx/conf.d/default.conf
 

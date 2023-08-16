@@ -16,8 +16,8 @@ services:
     networks:
       - odoo
   db:
-    image: postgres:13
-    container_name: db-odoo
+    image: postgres:14
+    container_name: db-odoo-pg14
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_PASSWORD=odoo
@@ -43,13 +43,13 @@ services:
     restart: unless-stopped
   proxy:
     depends_on:
-            - web
+      - web
     container_name: odoo_proxy
     build:
-        context: .
-        dockerfile: Dockerfile-nginx
+      context: .
+      dockerfile: nginx/Dockerfile
     ports:
-        - "8069:8069"
+      - "8069:8069"
     networks:
       - odoo
 
